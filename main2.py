@@ -9,7 +9,7 @@ from utils.fetchers import fetch_abi_from_etherscan
 
 import logging
 
-logging.basicConfig(level=logging.DEBUG)
+# logging.basicConfig(level=logging.DEBUG)
 
 INFURA_URL = 'https://api.avax.network/ext/bc/C/rpc'
 ETHERSCAN_API_KEY = 'DCMEWAPI5F8NJMPP4CB9ZVAAQH2GBYHXCS'
