@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="264a4553-a1df-40b0-a7c9-64b1981b1745" name="Changes" comment="added showing liquidity">
+      <change afterPath="$PROJECT_DIR$/safetycheck/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/safetycheck/honeypot_checks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/token_abi.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/token_abi.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +145,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705071628777</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added showing liquidity">
+      <option name="closed" value="true" />
+      <created>1705074345601</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705074345601</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

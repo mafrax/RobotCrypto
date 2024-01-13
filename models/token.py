@@ -1,16 +1,24 @@
 from web3 import Web3
 import json
+import os
 
 class Token:
     def __init__(self, web3: Web3, address: str):
         self.web3 = web3
         self.address = address
-        # self.abi = json.loads(
-        #     '[{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"}, {"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"}, {"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"}]'
-        # )
-        # Load the ERC-20 ABI from the JSON file
-        with open('token_abi.json', 'r') as abi_file:
-            self.abi = json.load(abi_file)
+        # Get the current working directory
+        current_directory = os.getcwd()
+
+        # Specify the path to the ABI file
+        abi_file_path = os.path.join(current_directory, './models/token_abi.json')
+
+        # Check if the ABI file exists
+        if os.path.exists(abi_file_path):
+            # Load the ERC-20 ABI from the JSON file
+            with open(abi_file_path, 'r') as abi_file:
+                self.abi = json.load(abi_file)
+        else:
+            print(f"ABI file 'token_abi.json' not found in the current directory: {abi_file_path}")
         self.contract = self.web3.eth.contract(address=self.address, abi=self.abi)
 
     def get_symbol(self):
