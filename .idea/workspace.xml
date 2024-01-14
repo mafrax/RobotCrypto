@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264a4553-a1df-40b0-a7c9-64b1981b1745" name="Changes" comment="added some honey pot checks">
+    <list default="true" id="264a4553-a1df-40b0-a7c9-64b1981b1745" name="Changes" comment="better filter recreation process">
+      <change afterPath="$PROJECT_DIR$/models/TokenDetails.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blockchain/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/events.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main2.py" beforeDir="false" afterPath="$PROJECT_DIR$/main2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/safetycheck/honeypot_checks.py" beforeDir="false" afterPath="$PROJECT_DIR$/safetycheck/honeypot_checks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705183121319</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="better filter recreation process">
+      <option name="closed" value="true" />
+      <created>1705239603785</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705239603785</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -165,6 +176,7 @@
     <MESSAGE value="structured project in different files and packages" />
     <MESSAGE value="added showing liquidity" />
     <MESSAGE value="added some honey pot checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="added some honey pot checks" />
+    <MESSAGE value="better filter recreation process" />
+    <option name="LAST_COMMIT_MESSAGE" value="better filter recreation process" />
   </component>
 </project>

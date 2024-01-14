@@ -1,16 +1,20 @@
 import asyncio
 import json
+
+from models.TokenDetails import TokenDetails
 from utils.fetchers import fetch_abi_from_etherscan
 from safetycheck.honeypot_checks import check_abi_for_honeypot_risks  # Import the function
 from models.token import Token
 import logging
 
+
 class EventListener:
-    def __init__(self, uniswap_contract, web3, etherscan_api_key):
+    def __init__(self, uniswap_contract, web3, etherscan_api_key, callback):
         logging.debug("Initializing EventListener")
         self.uniswap_contract = uniswap_contract
         self.web3 = web3
         self.etherscan_api_key = etherscan_api_key
+        self.callback = callback  # A callback function to handle new pairs
 
     async def handle_event(self, event):
         print('\nPair Created Event Detected')
@@ -25,8 +29,6 @@ class EventListener:
 
         # Fetch liquidity information
         pair_address = event.args.pair
-        token0 = Token(self.web3, event.args.token0)
-        token1 = Token(self.web3, event.args.token1)
 
         token0_liquidity = token0.get_balance(pair_address)
         token1_liquidity = token1.get_balance(pair_address)
@@ -37,10 +39,13 @@ class EventListener:
         token0_abi = await fetch_abi_from_etherscan(event.args.token0, self.etherscan_api_key)
         token1_abi = await fetch_abi_from_etherscan(event.args.token1, self.etherscan_api_key)
 
+        token0_risk = True
+        token1_risk = True
+
         if token0_abi and token1_abi:
             print(f"ABIs fetched for tokens: {token0_symbol}, {token1_symbol}")
 
-        # Check ABIs for potential honeypot risks
+            # Check ABIs for potential honeypot risks
             token0_risk = check_abi_for_honeypot_risks(token0_abi)
             token1_risk = check_abi_for_honeypot_risks(token1_abi)
 
@@ -48,6 +53,14 @@ class EventListener:
                 print("Warning: Potential honeypot risks detected in one of the tokens.")
             else:
                 print("No immediate honeypot risks detected in ABIs.")
+
+        # Create TokenInfo objects
+        token0_info = TokenDetails(event.args.token0, token0_symbol, token0_liquidity, bool(token0_abi),
+                                   token0_risk)
+        token1_info = TokenDetails(event.args.token1, token1_symbol, token1_liquidity, bool(token1_abi),
+                                   token1_risk)
+
+        return token0_info, token1_info
 
     async def listen_to_events(self):
         logging.debug("Listening to events")
@@ -65,7 +78,9 @@ class EventListener:
             try:
                 new_entries = event_filter.get_new_entries()
                 for event in new_entries:
-                    await self.handle_event(event)
+                    pair_info = await self.handle_event(event)
+                    await self.callback(pair_info)  # Call the callback with the new pair info
+
                 retry_count = 0  # Reset retry count after successful operation
 
             except ValueError as e:
