@@ -38,7 +38,7 @@ class EventListener:
         token1_abi = await fetch_abi_from_etherscan(event.args.token1, self.etherscan_api_key)
 
         if token0_abi and token1_abi:
-            print(f"ABIs fetched for tokens: {event.args.token0}, {event.args.token1}")
+            print(f"ABIs fetched for tokens: {token0_symbol}, {token1_symbol}")
 
         # Check ABIs for potential honeypot risks
             token0_risk = check_abi_for_honeypot_risks(token0_abi)
@@ -59,20 +59,28 @@ class EventListener:
             logging.error(f"Error creating event filter: {e}")
             return
 
+        retry_count = 0
+        max_retries = 5  # Set a maximum number of retries
         while True:
             try:
                 new_entries = event_filter.get_new_entries()
                 for event in new_entries:
-                    # Handle event
                     await self.handle_event(event)
+                retry_count = 0  # Reset retry count after successful operation
 
             except ValueError as e:
                 logging.error(f"ValueError encountered: {e}")
-                logging.warning("Filter not found or other error, recreating filter")
+                retry_count += 1
+                if retry_count > max_retries:
+                    logging.error("Maximum retries reached. Exiting.")
+                    break
+
+                logging.warning("Filter not found or other error, recreating filter with backoff")
+                await asyncio.sleep(2 ** retry_count)  # Exponential backoff
+
                 try:
                     event_filter = self.uniswap_contract.contract.events.PairCreated.create_filter(fromBlock='latest')
                 except Exception as e:
                     logging.error(f"Error recreating event filter: {e}")
-                    await asyncio.sleep(10)  # Wait longer before retrying to prevent rapid failure loops
+                    await asyncio.sleep(10)
                     continue
-            await asyncio.sleep(2)  # Adjust the duration as needed
