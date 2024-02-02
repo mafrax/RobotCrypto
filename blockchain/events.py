@@ -25,7 +25,10 @@ class EventListener:
         token0_symbol = token0.get_symbol()
         token1_symbol = token1.get_symbol()
 
-        print(f"\nPair: {token0_symbol} : {event.args.token0} - {token1_symbol} : {event.args.token1}")
+        token0_decimals = token0.get_decimals()
+        token1_decimals = token1.get_decimals()
+
+        print(f"\nPair: {token0_symbol} : {event.args.token0}  - {token1_symbol} : {event.args.token1}")
 
         # Fetch liquidity information
         pair_address = event.args.pair
@@ -33,7 +36,10 @@ class EventListener:
         token0_liquidity = token0.get_balance(pair_address)
         token1_liquidity = token1.get_balance(pair_address)
 
-        print(f"\nLiquidity - {token0_symbol}: {token0_liquidity}, {token1_symbol}: {token1_liquidity}")
+        token0_liquidity_formatted = token0.format_liquidity(token0_liquidity)
+        token1_liquidity_formatted = token1.format_liquidity(token1_liquidity)
+
+        print(f"\nLiquidity - {token0_symbol}: {token0_liquidity_formatted} {token0_decimals}, {token1_symbol}: {token1_liquidity_formatted} {token1_decimals}")
 
         # Fetch ABIs for the tokens
         token0_abi = await fetch_abi_from_etherscan(event.args.token0, self.etherscan_api_key)
@@ -95,6 +101,7 @@ class EventListener:
 
                 try:
                     event_filter = self.uniswap_contract.contract.events.PairCreated.create_filter(fromBlock='latest')
+                    logging.debug(f"Event Filter recreated: {event_filter}")
                 except Exception as e:
                     logging.error(f"Error recreating event filter: {e}")
                     await asyncio.sleep(10)

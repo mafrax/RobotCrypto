@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264a4553-a1df-40b0-a7c9-64b1981b1745" name="Changes" comment="better filter recreation process">
-      <change afterPath="$PROJECT_DIR$/models/TokenDetails.py" afterDir="false" />
+    <list default="true" id="264a4553-a1df-40b0-a7c9-64b1981b1745" name="Changes" comment="added more safety checks and return token pair for future snipe">
+      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/traderjoe_abi.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/trading_script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockchain/connection.py" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/connection.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blockchain/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/events.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main2.py" beforeDir="false" afterPath="$PROJECT_DIR$/main2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/safetycheck/honeypot_checks.py" beforeDir="false" afterPath="$PROJECT_DIR$/safetycheck/honeypot_checks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/TokenDetails.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/TokenDetails.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/token_abi.json" beforeDir="false" afterPath="$PROJECT_DIR$/models/token_abi.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +32,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;mafrax&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="6de69d14-b585-4030-ac99-8d7f1e0fbb30" />
+        <option name="url" value="https://github.com/mafrax/RobotCrypto.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -33,21 +53,24 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2aqedalLi7ggPmwk08oMA6U4eCa" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.main.executor": "Run",
-    "Python.main2.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main2.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/utils" />
@@ -168,15 +191,25 @@
       <option name="project" value="LOCAL" />
       <updated>1705239603785</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added more safety checks and return token pair for future snipe">
+      <option name="closed" value="true" />
+      <created>1705246676548</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705246676548</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="initial commit" />
     <MESSAGE value="structured project in different files and packages" />
     <MESSAGE value="added showing liquidity" />
     <MESSAGE value="added some honey pot checks" />
     <MESSAGE value="better filter recreation process" />
-    <option name="LAST_COMMIT_MESSAGE" value="better filter recreation process" />
+    <MESSAGE value="added more safety checks and return token pair for future snipe" />
+    <option name="LAST_COMMIT_MESSAGE" value="added more safety checks and return token pair for future snipe" />
   </component>
 </project>

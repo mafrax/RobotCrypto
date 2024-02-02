@@ -45,3 +45,18 @@ class Token:
     def get_balance(self, address):
         """Get the balance of this token for a specific address."""
         return self.contract.functions.balanceOf(address).call()
+
+    def format_liquidity(self, liquidity):
+        # Convert from wei to Ether (or the base unit to the token standard unit)
+        decimals = self.get_decimals()
+        liquidity_in_token = liquidity
+                              # / 1e18)  # Adjust this divisor based on the token's decimals
+
+        if liquidity_in_token >= 1e9:
+            return f"{liquidity_in_token / 1e9:.2f}B"
+        elif liquidity_in_token >= 1e6:
+            return f"{liquidity_in_token / 1e6:.2f}M"
+        elif liquidity_in_token >= 1e3:
+            return f"{liquidity_in_token / 1e3:.2f}K"
+        else:
+            return f"{liquidity_in_token:.2f}"
