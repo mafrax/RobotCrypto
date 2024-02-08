@@ -87,5 +87,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     pair_info_json = sys.argv[1]
-    token_position = 0
-    main(token_position, pair_info_json)
+    main(pair_info_json)

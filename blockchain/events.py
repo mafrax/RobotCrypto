@@ -1,11 +1,11 @@
 import asyncio
 import json
-
 from models.TokenDetails import TokenDetails
 from utils.fetchers import fetch_abi_from_etherscan
 from safetycheck.honeypot_checks import check_abi_for_honeypot_risks  # Import the function
 from models.token import Token
 import logging
+import os
 
 
 class EventListener:
@@ -32,6 +32,28 @@ class EventListener:
 
         # Fetch liquidity information
         pair_address = event.args.pair
+
+        current_directory = os.getcwd()
+
+        # Specify the path to the ABI file
+        abi_file_path = os.path.join(current_directory, './uniswapV2_pair.json')
+
+        with open(abi_file_path, 'r') as abi_file:
+            pool_contract_abi = json.load(abi_file)
+
+        # Use this ABI when creating the contract instance
+        pool_contract = self.web3.eth.contract(address=pair_address, abi=pool_contract_abi)
+
+        # Fetch liquidity information from the pair (pool) contract)
+        reserves = pool_contract.functions.getReserves().call()
+
+        print(f"\nTotal reserves : {reserves} LP Tokens")
+
+        # Assuming you want to display the total supply of LP tokens as a proxy for total liquidity
+        total_supply = pool_contract.functions.totalSupply().call()
+        total_supply_formatted = self.web3.from_wei(total_supply, 'ether')
+
+        print(f"\nTotal Liquidity (based on total supply of LP tokens): {total_supply_formatted} LP Tokens")
 
         token0_liquidity = token0.get_balance(pair_address)
         token1_liquidity = token1.get_balance(pair_address)

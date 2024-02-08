@@ -49,8 +49,7 @@ class Token:
     def format_liquidity(self, liquidity):
         # Convert from wei to Ether (or the base unit to the token standard unit)
         decimals = self.get_decimals()
-        liquidity_in_token = liquidity
-                              # / 1e18)  # Adjust this divisor based on the token's decimals
+        liquidity_in_token = liquidity / (10 ** decimals)  # Adjust liquidity based on the token's decimals
 
         if liquidity_in_token >= 1e9:
             return f"{liquidity_in_token / 1e9:.2f}B"

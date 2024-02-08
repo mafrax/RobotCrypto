@@ -6,7 +6,6 @@ class TokenDetails:
         self.has_abi = has_abi
         self.honeypot_risk = honeypot_risk
 
-
     def to_dict(self):
         return {
             "address": self.address,
