@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="264a4553-a1df-40b0-a7c9-64b1981b1745" name="Changes" comment="Added a price check , and added new window for every new pair">
+    <list default="true" id="264a4553-a1df-40b0-a7c9-64b1981b1745" name="Changes" comment="added some attemps at telegram and solona">
       <change afterPath="$PROJECT_DIR$/avax_report_07_02_2024.xlsx" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/avax_report_08_02_2024.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blockchain/raydum_events.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blockchain/solana_connection.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/uniswapV2_pair.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/TelegramBotManager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/utils/xls_report.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/session_name.session" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blockchain/events.py" beforeDir="false" afterPath="$PROJECT_DIR$/blockchain/events.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main2.py" beforeDir="false" afterPath="$PROJECT_DIR$/main2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/TokenDetails.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/TokenDetails.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trading_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/trading_script.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -213,8 +204,27 @@
       <option name="project" value="LOCAL" />
       <updated>1706860678130</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added some attemps at telegram and solona">
+      <option name="closed" value="true" />
+      <created>1707403120848</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707403120848</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -225,6 +235,7 @@
     <MESSAGE value="better filter recreation process" />
     <MESSAGE value="added more safety checks and return token pair for future snipe" />
     <MESSAGE value="Added a price check , and added new window for every new pair" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a price check , and added new window for every new pair" />
+    <MESSAGE value="added some attemps at telegram and solona" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some attemps at telegram and solona" />
   </component>
 </project>
